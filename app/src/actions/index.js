@@ -19,9 +19,12 @@ export const getBookData = () => (dispatch) => {
         .then(res => {
             dispatch({
                 type: ACTIONS.AXIOS_GET_SUCESS,
-                payload: res.data
+                payload: {
+                    title: res.data[`ISBN:${isbn}`].title,
+                    author: res.data[`ISBN:${isbn}`].by_statement
+                }
             })
-            console.log(res.data)
+            console.log(ACTIONS.AXIOS_GET_SUCESS, res.data)
         })
         .catch(err => {
             dispatch({

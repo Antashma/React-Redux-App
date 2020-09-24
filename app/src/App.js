@@ -8,12 +8,11 @@ function App(props) {
   useEffect(() => {
     props.getBookData();
   }, [])
-  console.log('sg : app.js : app : data value', props)
   return (
     <div className="App">
       <h1>Hello</h1>
       <p>App stuff will go below</p>
-      <Books />
+      {props.isLoading ? 'Loading...please wait.' : <Books data = {props.bookData} />}
     </div>
   );
 }

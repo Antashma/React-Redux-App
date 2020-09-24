@@ -20,8 +20,8 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 bookData: {
-                    title: 'PAYLOAD INFO HERE',
-                    author: 'PAYLOAD INFO HERE',
+                    title: action.payload.title,
+                    author: action.payload.author,
                 },
                 isLoading: false
             };
