@@ -7,8 +7,9 @@ export const ACTIONS = {
     AXIOS_GET_FAIL : 'failed to get data. please try again or contact webmaster.'
 };
 
-export const getBookData = (dispatch) => {
-    const isbn = nyTimesIsbns[3];
+const isbn = nyTimesIsbns[3];
+
+export const getBookData = () => (dispatch) => {
     dispatch({
         type: ACTIONS.AXIOS_GET_START
     })
