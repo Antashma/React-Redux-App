@@ -1,18 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {connect} from 'react-redux'
+import Books from './components/Books';
 import {getBookData} from './actions'
 
-import Books from './components/Books';
-
 function App(props) {
-  useEffect(() => {
-    props.getBookData();
-  }, [])
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <p>App stuff will go below</p>
-      {props.isLoading ? 'Loading...please wait.' : <Books data = {props.bookData} />}
+      <h1>Popular Picture Books for Children</h1>
+      <p>The following list is based on the New York Times bestsellers provided by OpenLibrary API.</p>
+      {props.isLoading ? 'Loading...please wait.' : <Books bookData = {props.bookData} getBookData={props.getBookData}/>}
     </div>
   );
 }
@@ -24,5 +20,6 @@ const mapStateToProps = state => {
     error: state.error
   }
 }
+
 export default connect(mapStateToProps, {getBookData})(App);
  
