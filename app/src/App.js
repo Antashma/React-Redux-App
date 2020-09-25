@@ -1,14 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import Books from './components/Books';
 import {getBookData} from './actions'
+
+import Books from './components/Books';
+
+import './App.css';
 
 function App(props) {
   return (
-    <div className="App">
+    <div className="App" className='app-container'>
       <h1>Popular Picture Books for Children</h1>
       <p>The following list is based on the New York Times bestsellers provided by OpenLibrary API.</p>
-      {props.isLoading ? 'Loading...please wait.' : <Books bookData = {props.bookData} getBookData={props.getBookData}/>}
+      {props.isLoading ? <p className='loading'>Loading...please wait.</p> : <Books bookData = {props.bookData} getBookData={props.getBookData}/>}
     </div>
   );
 }
